@@ -1,0 +1,14 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  login VARCHAR(30) NOT NULL UNIQUE,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  parent_post INTEGER REFERENCES posts(id),
+  user_id INTEGER REFERENCES users(id) NOT NULL,
+  content TEXT NOT NULL,
+  create_date TIMESTAMP NOT NULL
+);
