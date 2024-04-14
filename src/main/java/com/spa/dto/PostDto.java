@@ -6,7 +6,7 @@ import java.util.List;
 public class PostDto {
     private Long id;
     private UserDto user;
-    private String context;
+    private String content;
     private PostDto parent;
     private List<PostDto> comments;
     private LocalDateTime createDate;
@@ -17,7 +17,7 @@ public class PostDto {
     public PostDto(Long id, UserDto user, String context, PostDto parent, List<PostDto> comments, LocalDateTime createDate) {
         this.id = id;
         this.user = user;
-        this.context = context;
+        this.content = context;
         this.parent = parent;
         this.comments = comments;
         this.createDate = createDate;
@@ -39,12 +39,12 @@ public class PostDto {
         this.user = user;
     }
 
-    public String getContext() {
-        return context;
+    public String getContent() {
+        return content;
     }
 
-    public void setContext(String context) {
-        this.context = context;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public PostDto getParent() {
@@ -78,7 +78,7 @@ public class PostDto {
     public static class Builder {
         private Long id;
         private UserDto user;
-        private String context;
+        private String content;
         private PostDto parent;
         private List<PostDto> comments;
         private LocalDateTime createDate;
@@ -93,8 +93,8 @@ public class PostDto {
             return this;
         }
 
-        public Builder setContext(String context) {
-            this.context = context;
+        public Builder setContent(String content) {
+            this.content = content;
             return this;
         }
 
@@ -114,7 +114,7 @@ public class PostDto {
         }
 
         public PostDto build() {
-            return new PostDto(id, user, context, parent, comments, createDate);
+            return new PostDto(id, user, content, parent, comments, createDate);
         }
     }
 }

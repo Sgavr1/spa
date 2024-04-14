@@ -25,6 +25,16 @@ public class PostService {
     public List<PostDto> getPosts() {
         List<PostDto> posts = new ArrayList();
 
+        postRepository.findAllPost().forEach(post -> System.out.println(post.getDate().toString()));
+
+        postRepository.findAllPost().forEach(post -> posts.add(mapper.toDto(post)));
+
+        return posts;
+    }
+
+    public List<PostDto> getAll(){
+        List<PostDto> posts = new ArrayList();
+
         postRepository.findAll().forEach(post -> posts.add(mapper.toDto(post)));
 
         return posts;
