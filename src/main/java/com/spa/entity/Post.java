@@ -11,12 +11,11 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "parent_post")
     @ManyToOne
+    @JoinColumn(name = "parent_post_id")
     private Post parentPost;
-    @Column(name = "user_id")
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
     @Column
     private String content;
@@ -24,4 +23,52 @@ public class Post {
     private LocalDateTime date;
     @OneToMany(mappedBy = "parentPost")
     private List<Post> childPosts;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Post getParentPost() {
+        return parentPost;
+    }
+
+    public void setParentPost(Post parentPost) {
+        this.parentPost = parentPost;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public List<Post> getChildPosts() {
+        return childPosts;
+    }
+
+    public void setChildPosts(List<Post> childPosts) {
+        this.childPosts = childPosts;
+    }
 }

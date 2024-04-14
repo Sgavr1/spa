@@ -1,21 +1,19 @@
 package com.spa.dto;
 
-import java.util.List;
-
-public class UserDto {
+public class UserCreateDto {
     private Long id;
     private String login;
     private String email;
-    private List<PostDto> posts;
+    private String password;
 
-    public UserDto() {
+    public UserCreateDto() {
     }
 
-    public UserDto(Long id, String login, String email, List<PostDto> posts) {
+    public UserCreateDto(Long id, String login, String email, String password) {
         this.id = id;
         this.login = login;
         this.email = email;
-        this.posts = posts;
+        this.password = password;
     }
 
     public Long getId() {
@@ -42,12 +40,12 @@ public class UserDto {
         this.email = email;
     }
 
-    public List<PostDto> getPosts() {
-        return posts;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPosts(List<PostDto> posts) {
-        this.posts = posts;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Builder builder() {
@@ -58,7 +56,7 @@ public class UserDto {
         private Long id;
         private String login;
         private String email;
-        private List<PostDto> posts;
+        private String password;
 
         public Builder setId(Long id) {
             this.id = id;
@@ -75,13 +73,13 @@ public class UserDto {
             return this;
         }
 
-        public Builder setPosts(List<PostDto> posts) {
-            this.posts = posts;
+        public Builder setPassword(String password) {
+            this.password = password;
             return this;
         }
 
-        public UserDto build() {
-            return new UserDto(id, login, email, posts);
+        public UserCreateDto build() {
+            return new UserCreateDto(id, login, email, password);
         }
     }
 }

@@ -7,7 +7,7 @@ CREATE TABLE users (
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
-  parent_post INTEGER REFERENCES posts(id),
+  parent_post_id INTEGER REFERENCES posts(id),
   user_id INTEGER REFERENCES users(id) NOT NULL,
   content TEXT NOT NULL,
   create_date TIMESTAMP NOT NULL
